@@ -1,4 +1,4 @@
-package ch.bfh.wstat.project.enhanced;
+package ch.bfh.wstat.project;
 
 import java.math.BigDecimal;
 

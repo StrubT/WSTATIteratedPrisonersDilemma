@@ -1,4 +1,4 @@
-package ch.bfh.wstat.project.enhanced;
+package ch.bfh.wstat.project;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -11,18 +11,36 @@ import java.util.ArrayList;
  */
 public class Player {
 
-	private final Strategy strategy;
+	private Strategy strategy;
 
-	private final ArrayList<Round> rounds = new ArrayList<>();
+	private final ArrayList<Round> rounds = new ArrayList<>(Game.STANDARD_ROUNDS_TO_PLAY);
 	private BigDecimal totalGain = BigDecimal.ZERO;
 
 	/**
-	 * Construct a new player with a specific strategy.
+	 * Construct a new player with an initial strategy.
 	 *
 	 * @param strategy strategy to follow
 	 */
 	Player(Strategy strategy) {
 
+		this.strategy = strategy;
+	}
+
+	/**
+	 * Get the strategy the player follows.
+	 *
+	 * @return strategy the player follows
+	 */
+	public Strategy getStrategy() {
+		return this.strategy;
+	}
+
+	/**
+	 * Set the strategy the player follows.
+	 *
+	 * @param strategy strategy the player follows
+	 */
+	public void setStrategy(Strategy strategy) {
 		this.strategy = strategy;
 	}
 
@@ -64,15 +82,6 @@ public class Player {
 
 		this.rounds.add(r);
 		return r;
-	}
-
-	/**
-	 * Get the strategy the player follows.
-	 *
-	 * @return strategy the player follows
-	 */
-	public Strategy getStrategy() {
-		return this.strategy;
 	}
 
 	/**
