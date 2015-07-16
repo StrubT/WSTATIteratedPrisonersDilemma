@@ -24,9 +24,9 @@ public abstract class Strategy {
 	/**
 	 * A single random instance to be used by all strategies.
 	 */
-	protected static Random random = new Random();
+	protected static final Random random = new Random();
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	protected static final Class<? extends Strategy>[] WELL_KNOWN_STRATEGIES = new Class[]{
 		RandomStrategy.class,
 		CooperationStrategy.class,
